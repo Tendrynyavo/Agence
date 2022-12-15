@@ -33,8 +33,7 @@ CREATE TABLE habitation (
   photoface varchar(10) DEFAULT NULL,
   loyer decimal(10,2) DEFAULT NULL,
   quartier varchar(15) DEFAULT NULL,
-  description text DEFAULT NULL,
-  dispo int DEFAULT NULL  
+  description text DEFAULT NULL
 ); 
 
 --
@@ -48,16 +47,33 @@ CREATE TABLE photo (
   FOREIGN KEY (idHabitation) REFERENCES habitation(idHabitation)
 );
 
---
+--0
 -- Contenu de la table `user`
 --
 
 CREATE TABLE utilisateur (
   idUser SERIAL primary key,
-  nom varchar(10) DEFAULT NULL,
-  prenom varchar(10) DEFAULT NULL,
-  email varchar(10) DEFAULT NULL,
+  nomUser varchar(10) DEFAULT NULL,
+  email varchar(30) DEFAULT NULL,
   mdp varchar(10) DEFAULT NULL,
-  numTel varchar(10) DEFAULT NULL,
+  numTel varchar(15) DEFAULT NULL,
   sudo int DEFAULT NULL
 );
+
+--
+-- Contenu de la table `reservation`
+--
+
+CREATE TABLE reservation (
+  idReserv SERIAL primary key,
+  idUser int DEFAULT NULL,
+  idHabitation int DEFAULT NULL,
+  arrivee date DEFAULT NULL,
+  depart date DEFAULT NULL,
+  FOREIGN KEY (idUser) REFERENCES utilisateur(idUser),
+  FOREIGN KEY (idHabitation) REFERENCES habitation(idHabitation)
+);
+
+INSERT INTO utilisateur (nomUser, email, mdp, numTel, sudo) VALUES
+('Boss', 'boss@yahoo.com', 'Rbnb', '034 99 999 99', 1),
+('jean', 'jean@gmail.com', '12345', '034 00 000 00', 0 );

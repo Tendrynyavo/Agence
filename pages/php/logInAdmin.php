@@ -1,3 +1,8 @@
+<?php 
+	include("./db_function.php");
+	$p=get("Boss");
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +11,6 @@
 	<title>Log-In Admin</title>
 </head>
 <body>
-	
+	<p><?php echo $p[0]->nomuser; ?></p>
 </body>
 </html>

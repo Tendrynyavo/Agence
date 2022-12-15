@@ -16,9 +16,16 @@
         return $array;
     }
 
-    function get($user){
+    function logIn($email, $mdp){
         $connexion=db_connect();
-        $resultats=$connexion->query("SELECT * FROM utilisateur WHERE nomUser='$user'");
-        return convertToArray($resultats);
+        $resultats=$connexion->query("SELECT * FROM utilisateur WHERE email='$email' AND sudo=1 AND mdp='$mdp'");
+        $p=convertToArray($resultats);
+        if (sizeof($p)>0) {
+        	header("Location: ../html/Hello.html");
+        } else {
+        	echo "KDJNLAH ELAH!!!";
+        }
+        
+        
     }
  ?>

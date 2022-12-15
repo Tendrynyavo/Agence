@@ -83,3 +83,13 @@ INSERT INTO utilisateur (nomUser, email, mdp, numTel, sudo) VALUES
 ('Robert', 'robert@hotmail.com', 'picnic', '034 00 000 04', 0 ),
 ('4646popo', 'popo4646@gmail.com', 'ok', '034 00 000 05', 0 ),
 ('Tendry', 'tendry@gmail.com', 'TATA_BE', '034 00 000 06', 0 );
+
+INSERT INTO utilisateur (nomUser, email, mdp, numTel, sudo) VALUES
+('Boss', 'boss@yahoo.com', 'Rbnb', '034 99 999 99', 1),
+('Jean', 'jean@gmail.com', '12345', '034 00 000 00', 0 ),
+('Jeanne', 'jean@gmail.com', '54321', '034 00 000 01', 0 ),
+('Bob', 'bob@gmail.com', 'stone', '034 00 000 02', 0 ),
+('Micheal', 'mike@jaimail.com', 'basketball', '034 00 000 03', 0 ),
+('Robert', 'robert@hotmail.com', 'picnic', '034 00 000 04', 0 ),
+('4646popo', 'popo4646@gmail.com', 'ok', '034 00 000 05', 0 ),
+('Tendry', 'tendry@gmail.com', 'TATA_BE', '034 00 000 06', 0 );

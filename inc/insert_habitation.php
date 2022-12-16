@@ -3,8 +3,8 @@
     require("./PDO.php");
 
     function insert_habitation($habitation) {
-        $sql = "INSERT INTO habitation (nom, type, nbChambre, photoface, loyer, quartier, description) VALUES ('%s', '%s', %d, '%s', %d, '%s', '%s')";
-        $sql = sprintf($sql, $habitation['nom'], $habitation['type'], $habitation['nbChambre'], $habitation['photoface'], $habitation['loyer'], $habitation['quartier'], $habitation['description']);
+        $sql = "INSERT INTO habitation (nom, type, nbChambre, photoface, loyer, quartier, description, dispo_debut, dispo_fin) VALUES ('%s', '%s', %d, '%s', %d, '%s', '%s', '%s', '%s')";
+        $sql = sprintf($sql, $habitation['nom'], $habitation['type'], $habitation['nbChambre'], $habitation['photoface'], $habitation['loyer'], $habitation['quartier'], $habitation['description'], $habitation['dispo_debut'], $habitation['dispo_fin']);
         db_connect()->exec($sql);
     }
 
@@ -27,7 +27,9 @@
         "photoface" => $_FILES['file']['name'][0],
         "loyer" => $_POST['loyer'],
         "quartier" => $_POST['quartier'],
-        "description" => $_POST['description']
+        "description" => $_POST['description'],
+        "dispo_debut" => $_POST['dispo_debut'],
+        "dispo_fin" => $_POST['dispo_fin']
     ];
     
     insert_habitation($habitation);

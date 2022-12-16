@@ -63,6 +63,14 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description" name="description"></textarea>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="mb-3 col">
+                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Disponible debut" name="dispo_debut">
+                    </div>
+                    <div class="mb-3 col">
+                        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Disponible fin" name="dispo_fin">
+                    </div>
+                </div>
                 <input type="submit" value="Valider" class="btn btn-warning px-5">
             </div>
         </form>

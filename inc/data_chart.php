@@ -46,5 +46,21 @@
         return convertToArray($resultats)[0];
     }
 
+    function getHabitant($annee, $mois, $jour) {
+        $sql = "SELECT *
+                FROM habitation
+                WHERE dispo_debut <= '".$annee."-".$mois."-".$jour."' and '".$annee."-".$mois."-".$jour."' <= dispo_fin;";
+        $connexion = db_connect();
+        $resultats = $connexion->query($sql);
+        return convertToArray($resultats);
+    }
 
+    function getNombreHabitationByDay($annee, $mois) {
+        $jour = getJour($annee);
+        $data = array();
+        for ($i = 1; $i <= $jour[$mois]; $i++)
+            $data[] = getHabitant($annee, $mois, $i);
+        return $data;
+    }
+    
 ?>

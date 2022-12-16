@@ -4,5 +4,5 @@
             Administrateur
         </h2>
         <a href="./backOffice.php" class="btn btn-warning mb-3">Habitation</a>
-        <a href="./chart.php" class="btn btn-warning mb-3">Graphe</a>
+        <a href="./chart.php" class="btn btn-warning mb-3">DashBoard</a>
 </div>

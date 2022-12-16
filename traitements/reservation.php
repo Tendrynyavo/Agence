@@ -1,11 +1,11 @@
 <?php 
-	if (isset($_POST['sub'])==true) {
+	session_start();
+	if (isset($_POST['reserve'])==true) {
 		include '../inc/db_function.php';
-		$nom=$_POST['username'];
-		$email=$_POST['email'];
-		$mdp=$_POST['pwd'];
-		$numTel=$_POST['tel'];
-		signUp($nom, $email, $mdp, $numTel);	
+		$idUser=$_SESSION['id'];
+		$idHabitation=
+		$arrivee
+		$depart	
 	}
-	header("Location: ../page/admin/login.php")
+	header("Location: ../page/admin/login.php");
  ?>

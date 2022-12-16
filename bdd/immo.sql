@@ -44,6 +44,7 @@ CREATE TABLE habitation (
   loyer decimal(10,2) DEFAULT NULL,
   quartier varchar(15) DEFAULT NULL,
   description text DEFAULT NULL,
+  disponibilite int DEFAULT NULL,
   FOREIGN KEY (idType) REFERENCES type(idType)
 ); 
 

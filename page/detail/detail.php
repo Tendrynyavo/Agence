@@ -38,13 +38,13 @@
 					<div class="preview col-md-6">
                         
                         <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="../../img/Centurion/ext.png" height="400px"/></div>
-						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
-						    <li><a href="agrandir.php"><img src="../../img/Centurion/bed.png" /></a></li>
-						    <li><a href="agrandir.php"><img src="../../img/Centurion/bath.png" /></a></li>
-						    <li><a href="agrandir.php"><img src="../../img/Centurion/rest.png" /></a></li>
-						</ul>
+                                <div class="tab-pane active" id="pic-1"><a href="agrandir.php"><img src="../../img/Centurion/ext.png" height="400px"/></a></div>
+                            <ul class="preview-thumbnail nav nav-tabs">
+                                <li><a href="agrandir.php"><img src="../../img/Centurion/bed.png" /></a></li>
+                                <li><a href="agrandir.php"><img src="../../img/Centurion/bath.png" /></a></li>
+                                <li><a href="agrandir.php"><img src="../../img/Centurion/rest.png" /></a></li>
+                            </ul>
+                        </div>
 						
 					</div>
 					<div class="details col-md-6">
@@ -70,7 +70,7 @@
 
                         <!-- FORM for RESERVATION -->
 						<div class="action">
-                            <form action="reservation.php" method="post">
+                            <form action="reservation.php" method="post" action="../../traitements/reservation.php">
                                 <!-- Début Reservation input -->
                                 <p class="text-dark">Arrivée</p>
                                 <div class="form-outline mb-4">
@@ -84,7 +84,7 @@
                                     <input type="datetime-local" id="depart" class="form-control" />
                                     <label class="form-label" for="depart"></label>
                                 </div>
-                                <button class="btn btn-outline-danger me-2" type="submit">Reserver</button>
+                                <button class="btn btn-outline-danger me-2" type="submit" name="reserve">Reserver</button>
                             </form>
 						</div>
 
@@ -94,8 +94,9 @@
 		</div>
     </div>
 </main>
+
 <script src="<?php echo $boot_js;?>"></script>
 <script src="<?php echo $mdb_js;?>"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </body>
 </html>

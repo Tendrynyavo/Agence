@@ -11,8 +11,8 @@
     function upload_photo($photo) {
         $sql = "INSERT INTO Photo (idHabitation, nom)  VALUES ('%s', '%s');";
         $sql = sprintf($sql, $photo['idHabitation'], $photo['nom']);
-        db_connect()->exec($sql);
-    }
+        db_connect()->exec($sql); 
+    } 
 
     function getLast() {
         $connexion = db_connect();
@@ -32,17 +32,15 @@
     
     insert_habitation($habitation);
     $countfiles = count($_FILES['file']['name']);
-    for($i = 1; $i < $countfiles; $i++) {
+    for($i = 0; $i < $countfiles; $i++) {
         $filename = $_FILES['file']['name'][$i];
+        $photo = [
+            "idHabitation" => getLast()[0]->idhabitation,
+            "nom" => $filename
+        ];
         if (in_array(strchr($filename, "."), array('.png', '.gif', '.jpg', '.jpeg'))) {
-            $photo = [
-                "idHabitation" => getLast()[0]->idhabitation,
-                "nom" => $filename
-            ];
-            upload_photo($photo);
+            if ($i != 0) upload_photo($photo);
             move_uploaded_file($_FILES['file']['tmp_name'][$i], '../assets/img/' . $filename);
-        } else {
-            echo "Not Image File";
         }
     }
     

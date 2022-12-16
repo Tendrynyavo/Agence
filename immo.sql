@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `habitation`
 --
 
-CREATE TABLE habitation (
+CREATE TABLE habitation_delete (
   idHabitation SERIAL primary key,
   type varchar(10) DEFAULT NULL,
   nbChambre int DEFAULT NULL,
@@ -36,6 +36,10 @@ CREATE TABLE habitation (
   description text DEFAULT NULL,
   dispo int DEFAULT NULL  
 ); 
+
+CREATE TABLE habitation_delete (
+  idHabitation REFERENCES habitation(idHabitation)
+);
 
 --
 -- Contenu de la table `photo`

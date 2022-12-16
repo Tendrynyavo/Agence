@@ -45,6 +45,7 @@
             echo "Not Image File";
         }
     }
-    header("Location: ../page/backOffice.php");
     
+    header("Location: ../page/backOffice.php");
+
 ?>

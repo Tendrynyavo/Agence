@@ -15,12 +15,20 @@
     <title>Administration</title>
 </head>
 
+<style>
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+</style>
+
 <body>
     <!-- Side Bar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-dark fixed-top float-start shadow rounded mt-3 ms-3"
         style="width: 280px; height: -webkit-fill-available;">
         <h2 class="nav nav-pills flex-column mb-auto border-bottom p-3 text-light">
-            Back Office
+            Administrateur
         </h2>
         <a href="liste-match" class="btn btn-warning mb-3">Habitation</a>
         <a href="liste-match" class="btn btn-warning mb-3">Graphe</a>
@@ -29,7 +37,7 @@
 
     <div class="container" style="margin-left: 350px;">
         <!-- Formulaire -->
-        <form action="../inc/insert_habitation.php" enctype="multipart/form-data" id="formulaire">
+        <form action="../inc/insert_habitation.php" enctype="multipart/form-data" id="formulaire" method="post">
             <div class="w-75 p-5 rounded-4">
                 <h2 class="mb-4">Nouveau Habitation</h2>
                 <div class="row">
@@ -79,14 +87,14 @@
             </tr>
             <?php foreach ($habitations as $habitation) { ?>
             <tr>
-                <td></td>
+                <td><img src="../assets/img/<?php echo $habitation->photoface; ?>" alt="" class="rounded"></td>
                 <td><?php echo $habitation->nom; ?></td>
                 <td><?php echo $habitation->type; ?></td>
                 <td><?php echo $habitation->nbchambre; ?></td>
                 <td><?php echo $habitation->loyer; ?></td>
                 <td><?php echo $habitation->quartier; ?></td>
-                <td><a href="./update.php"><button class="btn btn-warning">Update</button></a></td>
-                <td><a href="../inc/delete_habitation.php"><button class="btn btn-warning">Delete</button></a></td>
+                <td><a href="./update.php?idHabitation=<?php echo $habitation->idhabitation; ?>"><button class="btn btn-warning">Update</button></a></td>
+                <td><a href="../inc/delete_habitation.php?idHabitation=<?php echo $habitation->idhabitation; ?>"><button class="btn btn-warning">Delete</button></a></td>
             </tr>
             <?php } ?>
         </table>

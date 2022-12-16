@@ -1,0 +1,9 @@
+<?php
+    $boot_css='../../assets/dist/css/bootstrap.min.css';
+    $mdb_css='../../assets/dist/css/mdb.min.css';
+    $boot_js='../../assets/dist/js/bootstrap.bundle.min.js';
+    $mdb_js='../../assets/dist/js/mdb.min.js';
+    $icon='../../img/logement.png';
+    $logo='../../img/habitation.png';
+    $link_address='../detail/detail.php';
+?>

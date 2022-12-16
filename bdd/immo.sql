@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `taxi be corportation
+-- Base de données :  `Agence immobilière`
 --
 
 -- --------------------------------------------------------
@@ -37,10 +37,10 @@ CREATE TABLE type (
 
 CREATE TABLE habitation (
   idHabitation SERIAL primary key,
-  nom varchar(15) DEFAULT NULL,
+  nom varchar(20) DEFAULT NULL,
   idType int DEFAULT NULL,
   nbChambre int DEFAULT NULL,
-  photoface varchar(10) DEFAULT NULL,
+  photoface varchar(30) DEFAULT NULL,
   loyer decimal(10,2) DEFAULT NULL,
   quartier varchar(15) DEFAULT NULL,
   description text DEFAULT NULL,
@@ -99,18 +99,37 @@ INSERT INTO utilisateur (nomUser, email, mdp, numTel, sudo) VALUES
 ('Tendry', 'tendry@gmail.com', 'TATA_BE', '034 00 000 06', 1);
 
 INSERT INTO type (nom) VALUES
-('villa'),
+('appartement'),
 ('maison'),
 ('studio');
 
 INSERT INTO habitation (nom, idType, nbChambre, photoface, loyer, quartier, description) VALUES
-('Villa Dioses', 1, 4, 'Diosas.jpg', 10000, 'Miami', 'Belle villa'),
-('Chez Booboo', 2, 4, 'Booboo.jpg', 8000, 'Maliboo', 'Belle maison'),
-('Studio Joshua', 3, 4, 'Josh.jpg', 4575.25, 'Brooklyn', 'Beau studio');
+('Centurion', 2, 1, 'Centurion/ext.png', 180, 'South Africa', '2 voyageurs, 1 lit, salle de bain et 1 toilette'),
+('Kigali', 1, 3, 'Kigali/ext.png', 150, 'South Africa', '3 voyageurs, 3 lits, grand jardin, salle de bain et 1 toilette'),
+('Nairobi', 1, 4, 'Nairobi/ext.png', 175.25, 'Nigeria', '5 voyageurs, 5 lits, piscine, salle de bain et toilette'),
+('Chez Helene', 1, 4, 'Chez Helene/ext.png', 64, 'Nigeria', '4 voyageurs, 1 chambre, 3 lits, 1 salle de bain'),
+('Stellenbosh', 3, 3, 'Stellenbosh/ext.png', 80, 'South Africa', '3 voyageurs, 3 lits, grand jardin, salle de bain et 1 toilette');
 
 INSERT INTO reservation (idUser, idHabitation, arrivee, depart) VALUES
 (8, 1, '2022-12-16', '2022-12-23'),
 (7, 2, '2022-12-22', '2022-12-30'),
 (4, 3, '2022-12-17', '2023-1-30');
+
+INSERT INTO photo (idHabitation, nom) VALUES
+(1, 'bath.png'),
+(1, 'bed.png'),
+(1, 'rest.png'),
+(2, 'bath.png'),
+(2, 'bed.png'),
+(2, 'rest.png'),
+(3, 'bath.png'),
+(3, 'bed.png'),
+(3, 'rest.png'),
+(4, 'bath.png'),
+(4, 'bed.png'),
+(4, 'rest.png'),
+(5, 'bath.png'),
+(5, 'bed.png'),
+(5, 'rest.png');
 
 

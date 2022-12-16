@@ -1,5 +1,9 @@
 <?php
     include '../../inc/link.php';
+    include '../../inc/db_function.php';
+    $id=$_GET['idhabitation'];
+    $hab=getHabitation($id);
+    $photos=getHabitationPhoto($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,7 @@
                     <!-- Navbar content -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link text-secondary" href="../../index.php">Home</a>
+                            <a class="nav-link text-secondary" href="../liste/maison.php">Home</a>
                         </li>
                     </ul>
                 </nav>
@@ -38,17 +42,17 @@
 					<div class="preview col-md-6">
                         
                         <div class="preview-pic tab-content">
-                                <div class="tab-pane active" id="pic-1"><a href="agrandir.php"><img src="../../img/Centurion/ext.png" height="400px"/></a></div>
+                                <div class="tab-pane active" id="pic-1"><a href="agrandir.php?id=<?php echo $hab[0]->idhabitation; ?>"><img src="../../img/<?php echo $hab[0]->photoface; ?>" height="400px"/></a></div>
                             <ul class="preview-thumbnail nav nav-tabs">
-                                <li><a href="agrandir.php"><img src="../../img/Centurion/bed.png" /></a></li>
-                                <li><a href="agrandir.php"><img src="../../img/Centurion/bath.png" /></a></li>
-                                <li><a href="agrandir.php"><img src="../../img/Centurion/rest.png" /></a></li>
+                            	<?php foreach ($photos as $photo) { ?>
+                            		<li><a href="agrandir.php?id=<?php echo $hab[0]->idhabitation;?>"><img src="../../img/<?php echo $hab[0]->nom; ?>/<?php echo $photo->nom; ?>" /></a></li>
+                            	<?php } ?>
                             </ul>
                         </div>
 						
 					</div>
 					<div class="details col-md-6">
-                        <h3 class="product-title">Centurion, Afrique du Sud</h3>
+                        <h3 class="product-title"><?php echo $hab[0]->nom; ?>, <?php echo $hab[0]->quartier; ?></h3>
 						<div class="rating">
                             <div class="stars">
                                 <span class="fa fa-star checked"></span>
@@ -70,18 +74,18 @@
 
                         <!-- FORM for RESERVATION -->
 						<div class="action">
-                            <form action="reservation.php" method="post" action="../../traitements/reservation.php">
+                            <form action="reservation.php" method="post" action="../../traitements/reservation.php?idhabitation=<?php echo $_GET['idhabitation'] ?>">
                                 <!-- Début Reservation input -->
                                 <p class="text-dark">Arrivée</p>
                                 <div class="form-outline mb-4">
-                                    <input type="datetime-local" id="arrivee" class="form-control"/>
+                                    <input type="datetime-local" id="arrivee" class="form-control" name="arrivee" />
                                     <label class="form-label" for="arrivee"></label>
                                 </div>
                                 
                                 <!-- Fin Reservation input -->
                                 <p class="text-dark">Départ</p>
                                 <div class="form-outline mb-4">
-                                    <input type="datetime-local" id="depart" class="form-control" />
+                                    <input type="datetime-local" id="depart" class="form-control" name="depart" />
                                     <label class="form-label" for="depart"></label>
                                 </div>
                                 <button class="btn btn-outline-danger me-2" type="submit" name="reserve">Reserver</button>

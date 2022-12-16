@@ -1,5 +1,9 @@
 <?php
     include '../../inc/link.php';
+    include '../../inc/db_function.php';
+    $id=$_GET['id'];
+    $hab=getHabitation($id);
+    $photos=getHabitationPhoto($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,31 +39,32 @@
         </header>
 
         <div class="container p-2">
-            <a href="detail.php" class="text-decoration-none">
+            <a href="detail.php?idhabitation=<?php echo $_GET['id'] ?>" class="text-decoration-none">
                 <i class="far fa-arrow-alt-circle-left"></i>
             </a>
         </div>
 
         <div class="container p-2">
             <div class="row justify-content-evenly">
-            <div class="col-4">
-                <img src="../../img/Centurion/ext.png" height="400px" class="rounded"/>
-            </div>
-            <div class="col-4">
-                <img src="../../img/Centurion/bed.png" height="400px" class="rounded"/>
+                <div class="col-4">
+                    <img src="../../img/<?php echo $hab[0]->photoface; ?>" height="400px" class="rounded"/>
+                </div>
+                <div class="col-4">
+                    <img src="../../img/<?php echo $hab[0]->nom; ?>/<?php echo $photos[0]->nom ?>" height="400px" class="rounded"/>
+                </div>
             </div>
         </div>
             <br>
         <div class="container">
-        <div class="row justify-content-evenly">
-            <div class="col-4">
-                <img src="../../img/Centurion/bath.png" height="400px" class="rounded"/>
-            </div>
-            <div class="col-4">
-                <img src="../../img/Centurion/rest.png" height="400px" class="rounded"/>
+            <div class="row justify-content-evenly">
+                <div class="col-4">
+                    <img src="../../img/<?php echo $hab[0]->nom; ?>/<?php echo $photos[1]->nom ?>" height="400px" class="rounded"/>
+                </div>
+                <div class="col-4">
+                    <img src="../../img/<?php echo $hab[0]->nom; ?>/<?php echo $photos[2]->nom ?>" height="400px" class="rounded"/>
+                </div>
             </div>
         </div>
-
     </main>
 
     <script src="<?php echo $boot_js;?>"></script>

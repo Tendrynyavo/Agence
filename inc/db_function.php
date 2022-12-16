@@ -48,8 +48,16 @@
         return convertToArray($resultats);
     }
 
-    function getHabitation(){
+    function getHabitation($id){
+        $connexion=db_connect();
+        $resultats=$connexion->query("SELECT * FROM habitation WHERE idHabitation=$id");
+        return convertToArray($resultats);
+    }
 
+    function getHabitationPhoto($id){
+        $connexion=db_connect();
+        $resultats=$connexion->query("SELECT * FROM habitation h, photo p where h.idHabitation=p.idHabitation and p.idHabitation=$id");
+        return convertToArray($resultats);
     }
 
     function getTypedHabitation($spec){

@@ -3,7 +3,7 @@
         function db_connect() {
                 $user = 'postgres';
                 $pass = 'postgres';
-                $dsn = 'pgsql:host=localhost;port=5433;dbname=billard';
+                $dsn = 'pgsql:host=localhost;port=5433;dbname=Agence';
 
                 try {
                         $connexion = new PDO($dsn, $user, $pass);
